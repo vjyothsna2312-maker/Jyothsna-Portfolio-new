@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" class="sealed">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jyothsna Vanapalli – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#14151A;--s1:#3B3447;--s2:#26383D;--s3:#4A3A3F;
+  --ink:#E9E4EC;--muted:#A39DAB;--accent:#E3BC82;--line:rgba(233,228,236,.16);--glass:rgba(28,28,36,.58);
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --body:"DM Sans","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html.sealed{overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.02rem;line-height:1.7;min-height:100vh;position:relative;overflow-x:hidden}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+html.rk,html.rk *{cursor:none}
+html.rk a,html.rk button,html.rk summary{cursor:pointer}
+
+.smoke{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.smoke i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.75}
+.smoke i:nth-child(1){width:60vmax;height:60vmax;left:-15vmax;top:-10vmax;background:radial-gradient(circle,var(--s1),transparent 65%);animation:d1 38s ease-in-out infinite alternate}
+.smoke i:nth-child(2){width:55vmax;height:55vmax;right:-18vmax;top:20vh;background:radial-gradient(circle,var(--s2),transparent 65%);animation:d2 46s ease-in-out infinite alternate}
+.smoke i:nth-child(3){width:50vmax;height:50vmax;left:15vw;bottom:-22vmax;background:radial-gradient(circle,var(--s3),transparent 65%);animation:d3 52s ease-in-out infinite alternate}
+.smoke::before{content:"";position:absolute;inset:0;opacity:.55;background-size:220px 220px;background-image:radial-gradient(1px 1px at 20px 30px,#fff9,transparent),radial-gradient(1px 1px at 95px 150px,#fff7,transparent),radial-gradient(1.5px 1.5px at 170px 70px,#fffc,transparent),radial-gradient(1px 1px at 140px 200px,#fff6,transparent)}
+.smoke::after{content:"";position:absolute;inset:0;opacity:.14;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>")}
+@keyframes d1{to{transform:translate(18vw,14vh) scale(1.2)}}
+@keyframes d2{to{transform:translate(-20vw,-12vh) scale(1.15)}}
+@keyframes d3{to{transform:translate(14vw,-16vh) scale(1.25)}}
+#trail{position:fixed;inset:0;width:100%;height:100%;z-index:20;pointer-events:none}
+#cur{position:fixed;left:0;top:0;width:22px;height:40px;z-index:21;pointer-events:none;opacity:0;transition:opacity .2s}
+
+.flame{fill:#E3BC82;transform-box:fill-box;transform-origin:50% 0;animation:fl .12s ease-in-out infinite alternate}
+@keyframes fl{from{transform:scaleY(.65)}to{transform:scaleY(1.15)}}
+
+#launch{position:fixed;inset:0;z-index:10;display:grid;place-items:center;text-align:center;padding:1.5rem}
+#launch[hidden]{display:none}
+#launch .txt{transition:opacity .5s}
+#launch.go .txt{opacity:0}
+#big{display:block;width:64px;height:116px;margin:0 auto 1.75rem}
+#launch.go #big{animation:fly 1.2s cubic-bezier(.5,0,.9,.45) forwards}
+@keyframes fly{12%{transform:translateY(8px)}to{transform:translateY(-130vh)}}
+#launch h2{font-size:clamp(2.2rem,7vw,4.2rem);font-style:italic;margin:0 0 .75rem}
+#launch p{color:var(--muted);margin:0 0 1.75rem}
+.btn{font:inherit;font-size:.95rem;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:.55rem 1.2rem;cursor:pointer;backdrop-filter:blur(6px)}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.big{font-size:1.1rem;padding:.75rem 2.2rem;border-color:var(--accent);color:var(--accent)}
+
+.wrap{position:relative;z-index:1;max-width:60rem;margin:0 auto;padding:0 1.25rem}
+html.sealed .wrap{display:none}
+h1,h2,h3{font-family:var(--display);font-weight:300;margin:0;line-height:1.05}
+.top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;padding:1.25rem 0;color:var(--muted);font-size:.95rem}
+.acts{display:flex;gap:.6rem;flex-wrap:wrap}
+
+.hero{padding:clamp(2.5rem,9vh,5rem) 0 1.5rem}
+.hero h1{font-size:clamp(3rem,10.5vw,7.5rem);letter-spacing:-.02em;font-style:italic;outline:0}
+.hero h1 span{display:inline-block;white-space:pre}
+.lede{font-size:1.15rem;max-width:34rem;color:var(--muted);margin:1.5rem 0 0}
+.tip{font-size:.92rem;color:var(--muted);margin:1rem 0 0}
+.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(10.5rem,1fr));margin:2.25rem 0 0;background:var(--glass);border:1px solid var(--line);border-radius:1rem;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden}
+.glance div{padding:1rem 1.2rem;border-right:1px solid var(--line)}
+.glance dt{font-size:.85rem;color:var(--muted);margin:0 0 .2rem}
+.glance dd{margin:0;font-family:var(--display);font-size:1.35rem;line-height:1.2}
+
+.stages{padding:2.5rem 0 0}
+details.stage{background:var(--glass);border:1px solid var(--line);border-radius:1rem;margin:0 0 1rem;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden}
+details.stage[open]{border-color:rgba(227,188,130,.45)}
+.stage>summary{list-style:none;display:flex;align-items:center;gap:1.1rem;padding:1.15rem 1.4rem}
+.stage>summary::-webkit-details-marker{display:none}
+.stage>summary::after{content:"+";margin-left:auto;font-size:1.8rem;line-height:1;color:var(--accent);transition:transform .25s}
+.stage[open]>summary::after{transform:rotate(45deg)}
+.n{font-size:.85rem;color:var(--accent);min-width:3.6rem}
+.q{font-family:var(--display);font-size:clamp(1.55rem,4.2vw,2.2rem);line-height:1.1}
+.q small{display:block;font-family:var(--body);font-size:.9rem;color:var(--muted);margin-top:.25rem}
+.sb{padding:.25rem 1.4rem 1.6rem}
+.sb h3{font-size:1.45rem;margin-bottom:.35rem}
+.read,.skills{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.read p{margin:0}
+.read h3{color:var(--accent)}
+.skills ul,.plain{list-style:none;margin:0;padding:0}
+.skills li,.plain li{padding:.4rem 0;border-bottom:1px solid var(--line)}
+.skills li:last-child,.plain li:last-child{border-bottom:0}
+.tl{list-style:none;margin:0;padding:0 0 0 1.5rem;border-left:1px solid var(--line)}
+.tl>li{position:relative;padding:0 0 1.75rem 1rem;max-width:42rem}
+.tl>li:last-child{padding-bottom:0}
+.tl>li::before{content:"";position:absolute;left:calc(-1.5rem - 5px);top:.6rem;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px 3px rgba(227,188,130,.55)}
+.meta{color:var(--muted);font-size:.93rem;margin:.1rem 0 .5rem}
+.tl p{margin:.25rem 0}
+.tl ul{margin:.5rem 0 0;padding-left:1.1rem}
+
+.contact{padding:3rem 0 0}
+.contact h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:1rem}
+.contact p{max-width:34rem;margin:0 0 .75rem}
+footer{margin-top:3.5rem;padding:1.5rem 0 2.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 span{opacity:0;filter:blur(18px);transform:translateY(.15em);animation:emerge 1.6s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i)*70ms + 150ms)}
+  @keyframes emerge{to{opacity:1;filter:blur(0);transform:none}}
+}
+@media (prefers-reduced-motion:reduce){.smoke i,.flame{animation:none}#trail,#cur{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="rk" viewBox="0 0 24 44"><path d="M12 1C16.5 7 17.5 15 16 26H8C6.5 15 7.5 7 12 1Z" fill="#E9E4EC"/><circle cx="12" cy="13" r="2.8" fill="#3B3447" stroke="#E3BC82" stroke-width="1"/><path d="M8 17L3 28L8 26ZM16 17L21 28L16 26Z" fill="#E3BC82"/></symbol></svg>
+
+<div class="smoke" aria-hidden="true"><i></i><i></i><i></i></div>
+<canvas id="trail" aria-hidden="true"></canvas>
+<svg id="cur" viewBox="0 0 24 44" aria-hidden="true"><use href="#rk"/><path class="flame" d="M9.5 26C10 34 11 40 12 43C13 40 14 34 14.5 26Z"/></svg>
+
+<div id="launch" role="dialog" aria-label="Welcome">
+  <div>
+    <svg id="big" viewBox="0 0 24 44" aria-hidden="true"><use href="#rk"/><path class="flame" d="M9.5 26C10 34 11 40 12 43C13 40 14 34 14.5 26Z"/></svg>
+    <div class="txt">
+      <h2>Curious who’s behind this page?</h2>
+      <p>The mission file is sealed. Light the engine to open it.</p>
+      <button class="btn big" id="ign" type="button">Ignite</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="top">
+    <span id="alt" aria-live="polite"></span>
+    <span class="acts"><button class="btn" id="all" type="button">Reveal everything</button><button class="btn" id="share" type="button">Copy link</button></span>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1 id="name" tabindex="-1" aria-label="Jyothsna Vanapalli">Jyothsna Vanapalli</h1>
+      <p class="lede">I'm Jyothsna, an Electronics and Communication Engineering graduate with a strong interest in computer networking and communication technologies. With hands-on experience at ISRO and a passion for learning, I enjoy exploring new technologies, solving problems and turning ideas into reality. Always curious, always growing, and excited for what's next!</p>
+      <p class="tip">Drag your mouse or finger across the page and see what trails behind. Then open the stages below.</p>
+      <dl class="glance">
+        <div><dt>Studying</dt><dd>B.Tech, Electronics and Communication</dd></div>
+        <div><dt>At</dt><dd>Gayatri Vidya Parishad College of Engineering</dd></div>
+        <div><dt>CGPA</dt><dd>9.3</dd></div>
+        <div><dt>Internship</dt><dd>ISRO, 2025</dd></div>
+      </dl>
+    </div>
+
+    <div class="stages">
+      <details class="stage" open>
+        <summary><span class="n">Stage 1</span><span class="q">Who is she?<small>The two-minute version</small></span></summary>
+        <div class="sb"><div class="read">
+          <div><h3>What I study</h3><p>Core Electronics and Communication subjects, from digital design in Verilog and SystemVerilog to 8086 assembly, with a 9.39 CGPA through the degree so far.</p></div>
+          <div><h3>What I’m good at</h3><p>Analytical, step-by-step problem solving. At ISRO I built a Python tool that calibrates and filters sensor data, and I’ve built an IoT pet feeder on Arduino and ESP32-CAM.</p></div>
+          <div><h3>What I’m looking for</h3><p>An entry-level role where I can apply technical fundamentals and grow into a data-driven professional.</p></div>
+        </div></div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="n">Stage 2</span><span class="q">Where did she learn it?<small>Three schools, three strong results</small></span></summary>
+        <div class="sb"><ol class="tl">
+          <li><h3>B.Tech in Electronics and Communication Engineering</h3><p class="meta">Gayatri Vidya Parishad College of Engineering · 2022 to 2026</p><p>CGPA 9.3.</p></li>
+          <li><h3>Intermediate</h3><p class="meta">Narayana Junior College · 2020 to 2022</p><p>93.3%.</p></li>
+          <li><h3>Secondary school (SSC)</h3><p class="meta">S.F.S High School · 2019 to 2020</p><p>CGPA 10.</p></li>
+        </ol></div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="n">Stage 3</span><span class="q">What can she actually do?<small>From Verilog to Canva</small></span></summary>
+        <div class="sb"><div class="skills">
+          <div><h3>Programming</h3><ul><li>C</li><li>Python</li><li>Java</li></ul></div>
+          <div><h3>Hardware design languages</h3><ul><li>Verilog</li><li>SystemVerilog</li><li>8086 Assembly</li></ul></div>
+          <div><h3>Engineering tools</h3><ul><li>Cadence</li><li>Xilinx ISE</li><li>MATLAB</li><li>Ansys</li><li>Cisco Packet Tracer</li><li>e-Sim</li></ul></div>
+          <div><h3>Software tools</h3><ul><li>Visual Studio Code</li><li>Eclipse</li><li>Python IDE</li></ul></div>
+          <div><h3>Reporting and collaboration</h3><ul><li>MS PowerPoint</li><li>MS Word</li><li>Canva</li></ul></div>
+          <div><h3>Working style</h3><ul><li>Problem solving</li><li>Structured communication</li><li>Adaptability and continuous learning</li><li>Analytical and logical thinking</li><li>Team collaboration</li></ul></div>
+        </div></div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="n">Stage 4</span><span class="q">What happened at ISRO?<small>Two months and a pile of sensor data</small></span></summary>
+        <div class="sb"><ol class="tl"><li>
+          <h3>Intern, Data Processing and Web Application Development</h3>
+          <p class="meta">ISRO, Indian Space Research Organisation · May to June 2025</p>
+          <p>Built a Python tool that turns raw sensor readings into calibrated, cleaned data, with a web interface on top.</p>
+          <ul>
+            <li>Wrote Python software to convert sensor voltage into pressure.</li>
+            <li>Merged .txt data files and applied first and fourth order calibration to improve accuracy and reduce errors.</li>
+            <li>Added a Butterworth low-pass filter to cut noise in the sensor data.</li>
+            <li>Designed the web interface in HTML and CSS and built a Flask backend for file handling and workflows.</li>
+            <li>Made the whole process automated from a single interface, so it’s easier to use.</li>
+          </ul>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:15px; margin-top:20px;">
+
+  <div>
+    <img src="images/i1.jpg" alt="ISRO rocket display"
+         style="width:100%; border-radius:12px;">
+    <p>Exploring India's launch vehicle heritage 🚀</p>
+  </div>
+
+  <div>
+    <img src="images/i2.jpg" alt="Satish Dhawan Space Centre"
+         style="width:100%; border-radius:12px;">
+    <p>A memorable experience at SDSC SHAR</p>
+  </div>
+
+</div>
+        </li></ol></div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="n">Stage 5</span><span class="q">What has she built?<small>It involves a hungry pet</small></span></summary>
+        <div class="sb"><ol class="tl"><li>
+          <h3>Smart Pet Feeding and Monitoring System</h3>
+          <p class="meta">Prototype · June 2024</p>
+          <p>A low-cost IoT solution that combines hardware control with live video.</p>
+          <ul>
+            <li>Dispenses food at scheduled intervals using an Arduino Uno and a servo motor.</li>
+            <li>Uses RTC-based timing, a keypad matrix and an LCD so feeding times can be set by the user.</li>
+            <li>Streams real-time video of the pet with an ESP32-CAM module.</li>
+          </ul>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:15px; margin-top:20px;">
+
+  <div>
+    <img src="images/pet1.jpg" alt="Smart Pet Feeding prototype"
+         style="width:100%; border-radius:12px;">
+    <p>Smart Pet Feeding and Monitoring System 🐾</p>
+  </div>
+
+  <div>
+    <img src="images/pet2.jpg" alt="Pet feeding system hardware"
+         style="width:100%; border-radius:12px;">
+    <p>Hardware implementation</p>
+  </div>
+
+  <div>
+    <img src="images/pet3.jpg" alt="Pet monitoring system"
+         style="width:100%; border-radius:12px;">
+    <p>IoT-based pet monitoring</p>
+  </div>
+
+</div>
+        </li></ol></div>
+      </details>
+
+      <details class="stage">
+  <summary>
+    <span class="n">Stage 6</span>
+    <span class="q">Gateway Design through Edge Computing
+      <small>Final Year Project · TRAPS</small>
+    </span>
+  </summary>
+
+  <div class="sb">
+    <ol class="tl">
+      <li>
+        <h3>Gateway Design through Edge Computing using TRAPS</h3>
+
+        <p class="meta">Final Year B.Tech Project · Team Lead</p>
+
+        <p>
+          Modified gateway behaviour to improve network traffic
+          management and reduce congestion in an IoT-based Wireless
+          Sensor Network. Explored routing protocols and priority-based
+          task scheduling to ensure that emergency sensor data reaches
+          the cloud before non-critical data.
+        </p>
+
+        <p>
+          <strong>Technologies:</strong>
+          NetSim, IoT, WSN, Edge Computing, AODV, RPL.
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:15px; margin-top:20px;">
+
+          <div>
+            <img src="images/t2.jpg"
+                 alt="Final year project team"
+                 style="width:100%; border-radius:12px;">
+            <p>Leading our final-year project team.</p>
+          </div>
+
+          <div>
+            <img src="images/t1.jpg"
+                 alt="Wireless Sensor Network architecture"
+                 style="width:100%; border-radius:12px;">
+            <p>WSN communication architecture.</p>
+          </div>
+
+        </div>
+      </li>
+    </ol>
+  </div>
+</details>
+      <details class="stage">
+        <summary><span class="n">Stage 6</span><span class="q">What else is she up to?<small>Essays, clubs and social media</small></span></summary>
+        <div class="sb"><ul class="plain">
+          <li>Winner, creative and essay writing, Literary Day at GVPCE</li>
+          <li>Social media handler, Hearts of Humanity Club</li>
+          <li>Marketing and promotions member, IETE student forum club</li>
+        </ul></div>
+      </details>
+    </div>
+
+    <section class="contact" id="contact">
+      <h2>Mission complete. Say hello.</h2>
+      <p>Email me for opportunities, references or my full résumé.</p>
+      <p><a href="mailto:vjyothsna2312@gmail.com">vjyothsna2312@gmail.com</a></p>
+    </section>
+  </main>
+
+
+  <footer>Last updated October 2026</footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement,
+      reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,
+      fine=matchMedia('(pointer:fine)').matches;
+
+  var h=document.getElementById('name'),t=h.textContent;
+  h.textContent='';
+  Array.from(t).forEach(function(c,i){
+    var s=document.createElement('span');
+    s.textContent=c;s.style.setProperty('--i',i);s.setAttribute('aria-hidden','true');
+    h.appendChild(s);
+  });
+
+  var b=document.getElementById('share');
+  b.addEventListener('click',function(){
+    var done=function(m){b.textContent=m;setTimeout(function(){b.textContent='Copy link'},2000)};
+    try{navigator.clipboard.writeText(location.href).then(function(){done('Link copied')},function(){done('Copy from address bar')})}
+    catch(e){done('Copy from address bar')}
+  });
+
+  var ds=[].slice.call(document.querySelectorAll('details.stage')),
+      alt=document.getElementById('alt'),all=document.getElementById('all');
+  function count(){
+    var n=ds.filter(function(d){return d.open}).length;
+    alt.textContent='Altitude: '+n+' of '+ds.length+' stages';
+    all.textContent=n===ds.length?'Collapse all':'Reveal everything';
+  }
+  ds.forEach(function(d){d.addEventListener('toggle',count)});
+  all.addEventListener('click',function(){
+    var open=ds.some(function(d){return !d.open});
+    ds.forEach(function(d){d.open=open});count();
+  });
+  count();
+
+  /* smoke trail */
+  var cv=document.getElementById('trail'),cx=cv.getContext('2d'),W=0,H=0,ps=[],
+      rk=document.getElementById('cur'),ang=0,tang=0,ux=0,uy=-1,mx=-100,my=-100,last=null;
+  var spr=document.createElement('canvas');spr.width=spr.height=64;
+  var sc=spr.getContext('2d'),g=sc.createRadialGradient(32,32,0,32,32,32);
+  g.addColorStop(0,'rgba(214,206,224,.55)');g.addColorStop(.5,'rgba(170,160,190,.22)');g.addColorStop(1,'rgba(150,140,170,0)');
+  sc.fillStyle=g;sc.fillRect(0,0,64,64);
+
+  function size(){var d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)}
+  size();addEventListener('resize',size);
+
+  function emit(x,y,n,vx,vy){
+    if(reduce)return;
+    for(var i=0;i<n;i++){
+      if(ps.length>450)ps.shift();
+      ps.push({x:x+(Math.random()-.5)*6,y:y+(Math.random()-.5)*6,vx:(Math.random()-.5)*.7+vx,vy:(Math.random()-.5)*.7+vy-.2,r:10+Math.random()*10,l:1,d:.012+Math.random()*.012});
+    }
+  }
+  function tick(){
+    cx.clearRect(0,0,W,H);
+    for(var i=ps.length-1;i>=0;i--){
+      var p=ps[i];
+      p.x+=p.vx;p.y+=p.vy;p.vx*=.985;p.vy*=.985;p.r+=.55;p.l-=p.d;
+      if(p.l<=0){ps.splice(i,1);continue}
+      cx.globalAlpha=p.l*p.l;
+      cx.drawImage(spr,p.x-p.r,p.y-p.r,p.r*2,p.r*2);
+    }
+    cx.globalAlpha=1;
+    if(rk){
+      var df=tang-ang;df=Math.atan2(Math.sin(df),Math.cos(df));ang+=df*.2;
+      rk.style.transform='translate('+mx+'px,'+my+'px) translate(-11px,-14px) rotate('+ang+'rad)';
+    }
+    requestAnimationFrame(tick);
+  }
+  if(!reduce){
+    if(fine){root.classList.add('rk')}else if(rk){rk.remove();rk=null}
+    requestAnimationFrame(tick);
+    addEventListener('pointermove',function(e){
+      var x=e.clientX,y=e.clientY;
+      if(last){
+        var dx=x-last.x,dy=y-last.y,d=Math.hypot(dx,dy);
+        if(d>2){ux=dx/d;uy=dy/d;tang=Math.atan2(dy,dx)+Math.PI/2}
+        var n=Math.min(Math.ceil(d/7),14),k=e.buttons?2:1;
+        for(var i=1;i<=n;i++){var f=i/n;emit(last.x+dx*f-ux*14,last.y+dy*f-uy*14,k,-ux*.5,-uy*.5)}
+      }
+      last={x:x,y:y};mx=x;my=y;
+      if(rk)rk.style.opacity=1;
+    });
+    root.addEventListener('mouseleave',function(){if(rk)rk.style.opacity=0;last=null});
+  }else if(rk){rk.remove();rk=null}
+
+  /* launch */
+  var L=document.getElementById('launch'),ign=document.getElementById('ign'),big=document.getElementById('big');
+  ign.focus();
+  ign.addEventListener('click',function(){
+    ign.disabled=true;L.classList.add('go');
+    var iv=setInterval(function(){var r=big.getBoundingClientRect();emit(r.left+r.width/2,r.bottom-6,3,0,1.4)},30);
+    setTimeout(function(){clearInterval(iv)},1100);
+    setTimeout(function(){L.hidden=true;root.classList.remove('sealed');h.focus({preventScroll:true})},reduce?0:1200);
+  });
+})();
+</script>
+</body>
+</html>
